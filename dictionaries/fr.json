@@ -1,0 +1,13 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "services": "Services",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Assistant Virtuel Comptable",
+    "description": "Services comptables professionnels à distance pour PME et entrepreneurs.",
+    "cta": "Demander un devis"
+  }
+}

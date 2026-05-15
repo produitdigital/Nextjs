@@ -1,0 +1,13 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Virtual Accounting Assistant",
+    "description": "Professional remote accounting services for SMEs and entrepreneurs.",
+    "cta": "Get a quote"
+  }
+}
