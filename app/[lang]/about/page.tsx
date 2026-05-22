@@ -145,120 +145,125 @@ export default async function AboutPage({ params }: PageProps) {
         }}
       />
 
-      <main className="about-page">
+      <main className="mx-auto max-w-6xl px-4 py-8 md:py-12">
         {/* Header Section */}
-        <header className="about-header">
-          <div className="about-header-content">
-            <div className="about-header-image">
+        <header className="mb-12 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 p-6 text-center md:p-8">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-6 flex justify-center">
               <Image
                 src="/images/about.webp"
                 alt={t.title}
                 width={800}
                 height={600}
-                className="about-image"
+                className="rounded-xl shadow-md"
               />
             </div>
-            <h1 className="about-title">{t.title}</h1>
-            <p className="about-subtitle">{t.subtitle}</p>
-            <nav className="about-nav">
-              <Link href={`/${lang}`} className="about-nav-link">{t.navHome}</Link>
-              <Link href={`/${lang}/services`} className="about-nav-link">{t.navServices}</Link>
-              <Link href={`/${lang}/blog`} className="about-nav-link">{t.navBlog}</Link>
-              <Link href={`/${lang}/contact`} className="about-nav-link">{t.navContact}</Link>
+            <h1 className="mb-3 text-3xl font-extrabold text-gray-900 md:text-4xl">{t.title}</h1>
+            <p className="mb-6 text-lg text-gray-600">{t.subtitle}</p>
+            <nav className="flex flex-wrap justify-center gap-4">
+              <Link href={`/${lang}`} className="rounded-full bg-white px-4 py-2 text-gray-700 shadow-sm transition hover:bg-primary hover:text-white">{t.navHome}</Link>
+              <Link href={`/${lang}/services`} className="rounded-full bg-white px-4 py-2 text-gray-700 shadow-sm transition hover:bg-primary hover:text-white">{t.navServices}</Link>
+              <Link href={`/${lang}/blog`} className="rounded-full bg-white px-4 py-2 text-gray-700 shadow-sm transition hover:bg-primary hover:text-white">{t.navBlog}</Link>
+              <Link href={`/${lang}/contact`} className="rounded-full bg-white px-4 py-2 text-gray-700 shadow-sm transition hover:bg-primary hover:text-white">{t.navContact}</Link>
             </nav>
           </div>
         </header>
 
         {/* Parcours Section */}
-        <section className="about-section">
-          <div className="about-section-content">
-            <h2 className="about-section-title">{t.parcoursTitle}</h2>
-            <p className="about-section-text">{t.parcoursText1}</p>
-            <p className="about-section-text">{t.parcoursText2}</p>
+        <div className="mb-8 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-4 text-2xl font-bold text-gray-800 md:text-3xl">{t.parcoursTitle}</h2>
+            <p className="mb-2 text-gray-700">{t.parcoursText1}</p>
+            <p className="text-gray-700">{t.parcoursText2}</p>
           </div>
-        </section>
+        </div>
 
         {/* Compétences Section */}
-        <section className="about-skills">
-          <h2 className="about-skills-title">{t.competencesTitle}</h2>
-          <div className="about-skills-grid">
-            <div className="about-skill-card">
-              <h3 className="about-skill-card-title">{t.packOffice}</h3>
-              <p className="about-skill-card-text">{t.packOfficeText}</p>
+        <div className="mb-8">
+          <h2 className="mb-6 text-center text-2xl font-bold text-gray-800 md:text-3xl">{t.competencesTitle}</h2>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+              <h3 className="mb-2 text-lg font-semibold text-primary">{t.packOffice}</h3>
+              <p className="text-gray-600">{t.packOfficeText}</p>
             </div>
-            <div className="about-skill-card">
-              <h3 className="about-skill-card-title">{t.logicielsComptables}</h3>
-              <p className="about-skill-card-text">{t.logicielsComptablesText}</p>
+            <div className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+              <h3 className="mb-2 text-lg font-semibold text-primary">{t.logicielsComptables}</h3>
+              <p className="text-gray-600">{t.logicielsComptablesText}</p>
             </div>
-            <div className="about-skill-card">
-              <h3 className="about-skill-card-title">{t.googleWorkspace}</h3>
-              <p className="about-skill-card-text">{t.googleWorkspaceText}</p>
+            <div className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+              <h3 className="mb-2 text-lg font-semibold text-primary">{t.googleWorkspace}</h3>
+              <p className="text-gray-600">{t.googleWorkspaceText}</p>
             </div>
-            <div className="about-skill-card">
-              <h3 className="about-skill-card-title">{t.autresOutils}</h3>
-              <p className="about-skill-card-text">{t.autresOutilsText}</p>
+            <div className="rounded-xl border border-gray-100 bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+              <h3 className="mb-2 text-lg font-semibold text-primary">{t.autresOutils}</h3>
+              <p className="text-gray-600">{t.autresOutilsText}</p>
             </div>
           </div>
-        </section>
+        </div>
 
         {/* Services Mini Section */}
-        <section className="about-section-light">
-          <div className="about-section-content">
-            <h2 className="about-section-title">{t.servicesTitle}</h2>
-            <ul className="about-services-list">
+        <div className="mb-8 rounded-2xl bg-gray-50 p-6 text-center shadow-sm md:p-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="mb-4 text-2xl font-bold text-gray-800 md:text-3xl">{t.servicesTitle}</h2>
+            <ul className="flex flex-wrap justify-center gap-3">
               {t.servicesList.map((service, index) => (
-                <li key={index} className="about-services-item">{service}</li>
+                <li key={index} className="rounded-full bg-gradient-to-r from-primary to-secondary px-4 py-2 text-sm font-medium text-white shadow-sm">
+                  {service}
+                </li>
               ))}
             </ul>
           </div>
-        </section>
+        </div>
 
         {/* Mission Section */}
-        <section className="about-mission">
-          <div className="about-mission-content">
-            <h2 className="about-mission-title">{t.missionTitle}</h2>
-            <p className="about-mission-text">{t.missionText1}</p>
-            <p className="about-mission-text">{t.missionText2}</p>
+        <div className="mb-8 rounded-2xl border-l-8 border-primary bg-gradient-to-r from-gray-50 to-gray-100 p-6 md:p-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="mb-3 text-2xl font-bold text-gray-800 md:text-3xl">{t.missionTitle}</h2>
+            <p className="mb-2 text-gray-700">{t.missionText1}</p>
+            <p className="text-gray-700">{t.missionText2}</p>
           </div>
-        </section>
+        </div>
 
         {/* Valeur ajoutée Section */}
-        <section className="about-section">
-          <div className="about-section-content">
-            <h2 className="about-section-title">{t.valeurTitle}</h2>
-            <p className="about-section-text">{t.valeurText}</p>
+        <div className="mb-8 rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm md:p-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="mb-4 text-2xl font-bold text-gray-800 md:text-3xl">{t.valeurTitle}</h2>
+            <p className="text-gray-700">{t.valeurText}</p>
           </div>
-        </section>
+        </div>
 
         {/* CTA Section */}
-        <section className="about-cta">
-          <div className="about-cta-content">
-            <h2 className="about-cta-title">{t.ctaTitle}</h2>
-            <p className="about-cta-text">{t.ctaText}</p>
-            <div className="about-cta-button-wrapper">
-              <Link href={`/${lang}/contact`} className="cta-button">
-                {t.ctaButton}
-              </Link>
-            </div>
+        <div className="mb-8 rounded-2xl bg-white p-6 text-center shadow-sm md:p-8">
+          <div className="mx-auto max-w-2xl">
+            <h2 className="mb-3 text-2xl font-bold text-gray-800 md:text-3xl">{t.ctaTitle}</h2>
+            <p className="mb-6 text-gray-600">{t.ctaText}</p>
+            <Link
+              href={`/${lang}/contact`}
+              className="inline-block rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-3 font-semibold text-white shadow-md transition hover:-translate-y-0.5"
+            >
+              {t.ctaButton}
+            </Link>
           </div>
-        </section>
+        </div>
 
         {/* Contact Info Section */}
-        <section className="about-contact">
-          <div className="about-contact-content">
-            <h2 className="about-contact-title">{t.contactTitle}</h2>
-            <p className="about-contact-email">
+        <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 text-center md:p-8">
+          <div className="mx-auto max-w-md">
+            <h2 className="mb-4 text-2xl font-bold text-gray-800">{t.contactTitle}</h2>
+            <p className="mb-2 text-gray-700">
               {t.email}{" "}
-              <a href="mailto:rjeantsioriniaina@gmail.com">
+              <a href="mailto:rjeantsioriniaina@gmail.com" className="text-primary transition hover:underline">
                 rjeantsioriniaina@gmail.com
               </a>
             </p>
-            <p className="about-contact-phone">
+            <p className="text-gray-700">
               {t.phone}{" "}
-              <a href="tel:+261380806430">+261 38 08 064 30</a>
+              <a href="tel:+261380806430" className="text-primary transition hover:underline">
+                +261 38 08 064 30
+              </a>
             </p>
           </div>
-        </section>
+        </div>
       </main>
     </>
   );

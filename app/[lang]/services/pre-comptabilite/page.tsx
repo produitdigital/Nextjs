@@ -62,49 +62,57 @@ export default async function PreComptabilitePage({ params }: PageProps) {
   const t = texts[lang as "fr" | "en"] || texts.fr;
 
   return (
-    <main className="services-detail-page">
-      <nav className="services-detail-nav">
-        <Link href={`/${lang}/services`} className="back-link">
+    <main className="mx-auto max-w-4xl px-4 py-8 md:py-12">
+      {/* Navigation retour */}
+      <nav className="mb-8">
+        <Link href={`/${lang}/services`} className="inline-flex items-center gap-1 text-gray-600 transition hover:text-primary">
           {t.backToServices}
         </Link>
       </nav>
 
-      <section className="services-detail-card">
-        <h1 className="services-detail-title">{t.title}</h1>
-        <p className="services-detail-description">{t.description}</p>
+      {/* Section principale */}
+      <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
+        <h1 className="mb-4 text-3xl font-extrabold text-gray-900 md:text-4xl">{t.title}</h1>
+        <p className="mb-8 text-lg text-gray-600">{t.description}</p>
 
-        <div className="services-detail-grid">
-          <div className="services-detail-features">
-            <h3 className="services-detail-subtitle">{t.subtitle}</h3>
-            <ul className="services-detail-list">
+        <div className="flex flex-col gap-8 md:flex-row md:gap-12">
+          {/* Liste des prestations */}
+          <div className="flex-1">
+            <h3 className="mb-4 text-xl font-semibold text-gray-800">{t.subtitle}</h3>
+            <ul className="space-y-2">
               {t.features.map((feature, index) => (
-                <li key={index} className="services-detail-item">
-                  <span className="checkmark">✔</span> {feature}
+                <li key={index} className="flex items-start gap-2 text-gray-700">
+                  <span className="text-green-500">✔</span> {feature}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="services-detail-image">
+
+          {/* Image */}
+          <div className="flex-1">
             <Image
               src="/images/precompta.webp"
               alt={t.imageAlt}
               width={500}
               height={350}
-              className="responsive-img"
+              className="w-full rounded-xl object-cover shadow-md"
             />
           </div>
         </div>
-      </section>
+      </div>
 
-      <section className="services-detail-benefit">
-        <div className="services-detail-benefit-content">
-          <h3 className="services-detail-benefit-title">{t.benefitTitle}</h3>
-          <p className="services-detail-benefit-text">{t.benefitText}</p>
-        </div>
-      </section>
+      {/* Section Bénéfice */}
+      <div className="mt-8 rounded-2xl border-l-8 border-primary bg-gradient-to-r from-gray-50 to-gray-100 p-6 md:p-8">
+        <h3 className="mb-2 text-xl font-bold text-gray-800 md:text-2xl">{t.benefitTitle}</h3>
+        <p className="text-gray-700">{t.benefitText}</p>
+      </div>
 
-      <div className="services-detail-cta">
-        <Link href={`/${lang}/contact`} className="cta-button">
+      {/* Appel à l'action */}
+      <div className="mt-8 text-center">
+        <Link
+          href={`/${lang}/contact`}
+          className="inline-block rounded-full bg-gradient-to-r from-primary to-secondary px-8 py-3 font-semibold text-white shadow-md transition hover:-translate-y-0.5"
+        >
           {t.ctaText}
         </Link>
       </div>

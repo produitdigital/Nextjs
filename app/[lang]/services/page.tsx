@@ -88,91 +88,80 @@ export default async function ServicesHubPage({ params }: PageProps) {
 
   return (
     <>
-      {/* Header de Navigation */}
-      <header className="services-nav-header">
-        <nav className="services-navbar">
-          <Link href={`/${lang}`} className="services-logo">
-            Virtuel<span>Comptable</span>
+      {/* Header de Navigation - Version Tailwind */}
+      <header className="sticky top-0 z-50 bg-white shadow-sm">
+        <nav className="container mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-4 md:px-6">
+          <Link href={`/${lang}`} className="text-xl font-bold text-gray-800">
+            Virtuel<span className="text-primary">Comptable</span>
           </Link>
-          
-          <div className="services-nav-links">
-            {/* Lien Accueil - AJOUTÉ */}
-            <Link href={`/${lang}`} className="services-nav-link">
+
+          <div className="flex flex-wrap items-center gap-4 md:gap-6">
+            <Link href={`/${lang}`} className="text-gray-700 transition hover:text-primary font-medium">
               {t.navHome}
             </Link>
-            <Link href={`/${lang}/services`} className="services-nav-link active">
+            <Link href={`/${lang}/services`} className="text-primary border-b-2 border-primary font-medium">
               {t.navServices}
             </Link>
-            <Link href={`/${lang}/about`} className="services-nav-link">
+            <Link href={`/${lang}/about`} className="text-gray-700 transition hover:text-primary font-medium">
               {t.navAbout}
             </Link>
-            <Link href={`/${lang}/blog`} className="services-nav-link">
+            <Link href={`/${lang}/blog`} className="text-gray-700 transition hover:text-primary font-medium">
               {t.navBlog}
             </Link>
-            <Link href={`/${lang}/contact`} className="services-nav-link">
+            <Link href={`/${lang}/contact`} className="text-gray-700 transition hover:text-primary font-medium">
               {t.navContact}
             </Link>
           </div>
-          
-          <Link href={`/${lang}/contact`} className="services-cta-btn">
+
+          <Link href={`/${lang}/contact`} className="rounded-full bg-gradient-to-r from-primary to-secondary px-5 py-2 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5">
             {t.ctaBtn}
           </Link>
-          
+
           {/* Sélecteur de langue */}
-          <div className="services-lang-selector">
-            <Link href="/fr/services" className={lang === "fr" ? "active" : ""}>
-              FR
-            </Link>
-            <span>|</span>
-            <Link href="/en/services" className={lang === "en" ? "active" : ""}>
-              EN
-            </Link>
+          <div className="flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1">
+            <Link href="/fr/services" className={`rounded-full px-2 py-1 text-sm font-semibold transition ${lang === "fr" ? "bg-primary text-white" : "text-gray-600"}`}>FR</Link>
+            <span className="text-gray-400">|</span>
+            <Link href="/en/services" className={`rounded-full px-2 py-1 text-sm font-semibold transition ${lang === "en" ? "bg-primary text-white" : "text-gray-600"}`}>EN</Link>
           </div>
         </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="services-hero">
-        <div className="services-hero-content">
-          <h1 className="services-hero-title">
-            {t.title}
-          </h1>
-          <p className="services-hero-subtitle">
-            {t.subtitle}
-          </p>
+      <section className="bg-gradient-to-br from-blue-50 to-indigo-50 px-4 py-16 text-center md:py-20">
+        <div className="container mx-auto max-w-3xl">
+          <h1 className="mb-3 text-3xl font-extrabold text-gray-900 md:text-4xl">{t.title}</h1>
+          <p className="text-lg text-gray-600">{t.subtitle}</p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <main className="services-main">
-        <div className="services-container">
-          <div className="services-grid">
-            {serviceSilos.map((silo) => (
-              <div key={silo.slug} className="services-card">
-                <div className="services-card-icon" style={{ backgroundColor: silo.iconBg }}>
-                  <span>{silo.icon}</span>
-                </div>
-                <h3 className="services-card-title">
-                  {lang === "fr" ? silo.title : silo.title_en}
-                </h3>
-                <p className="services-card-desc">
-                  {lang === "fr" ? silo.desc : silo.desc_en}
-                </p>
-                <Link href={`/${lang}/services/${silo.slug}`} className="services-card-link">
-                  {t.learnMore}
-                </Link>
+      <main className="container mx-auto px-4 py-12 max-w-6xl">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          {serviceSilos.map((silo) => (
+            <div key={silo.slug} className="rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition hover:-translate-y-2 hover:shadow-lg">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full text-2xl" style={{ backgroundColor: silo.iconBg }}>
+                <span>{silo.icon}</span>
               </div>
-            ))}
-          </div>
-
-          {/* Why Section */}
-          <section className="services-why">
-            <div className="services-why-content">
-              <h2 className="services-why-title">{t.whyTitle}</h2>
-              <p className="services-why-text">{t.whyText}</p>
+              <h3 className="mb-2 text-xl font-bold text-gray-800">
+                {lang === "fr" ? silo.title : silo.title_en}
+              </h3>
+              <p className="mb-4 text-gray-600">
+                {lang === "fr" ? silo.desc : silo.desc_en}
+              </p>
+              <Link href={`/${lang}/services/${silo.slug}`} className="inline-flex items-center gap-1 text-primary font-semibold transition hover:gap-2">
+                {t.learnMore}
+              </Link>
             </div>
-          </section>
+          ))}
         </div>
+
+        {/* Why Section */}
+        <section className="mt-12 rounded-2xl border-l-8 border-primary bg-gradient-to-r from-gray-50 to-gray-100 p-6 md:p-8">
+          <div className="max-w-3xl">
+            <h2 className="mb-3 text-2xl font-bold text-gray-800 md:text-3xl">{t.whyTitle}</h2>
+            <p className="text-gray-700">{t.whyText}</p>
+          </div>
+        </section>
       </main>
     </>
   );

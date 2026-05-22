@@ -91,8 +91,8 @@ export default async function BlogPage({ params }: PageProps) {
   };
 
   return (
-    <main className="blog-page">
-      {/* DONNÉES STRUCTURÉES DU BLOG (SEO GOOGLE) */}
+    <main className="mx-auto max-w-6xl px-4 py-8 md:py-12">
+      {/* DONNÉES STRUCTURÉES DU BLOG (SEO) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -107,54 +107,66 @@ export default async function BlogPage({ params }: PageProps) {
         }}
       />
 
-      {/* BLOG HEADER - style comme services-hero */}
-      <header className="blog-header">
-        <div className="blog-header-content">
-          <h1 className="blog-header-title">{t.title}</h1>
-          <p className="blog-header-subtitle">{t.subtitle}</p>
-        </div>
+      {/* HEADER DU BLOG */}
+      <header className="mb-8 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 px-4 py-12 text-center md:py-16">
+        <h1 className="mb-3 text-3xl font-extrabold text-gray-900 md:text-4xl">{t.title}</h1>
+        <p className="text-lg text-gray-600">{t.subtitle}</p>
       </header>
 
-      {/* INTERNAL LINKING SECTION - style comme services-navbar */}
-      <nav className="blog-nav">
-        <div className="blog-nav-links">
-          <Link href={`/${lang}`} className="blog-nav-link">{t.backToHome}</Link>
-          <Link href={`/${lang}/services`} className="blog-nav-link">{t.services}</Link>
-          <Link href={`/${lang}/contact`} className="blog-nav-link">{t.contact}</Link>
+      {/* BARRE DE NAVIGATION INTERNE + SÉLECTEUR DE LANGUE */}
+      <nav className="mb-10 flex flex-col items-center justify-between gap-4 rounded-full bg-gray-100 px-6 py-3 shadow-sm md:flex-row md:rounded-full">
+        <div className="flex flex-wrap justify-center gap-4">
+          <Link href={`/${lang}`} className="text-gray-700 transition hover:text-primary font-medium">
+            {t.backToHome}
+          </Link>
+          <Link href={`/${lang}/services`} className="text-gray-700 transition hover:text-primary font-medium">
+            {t.services}
+          </Link>
+          <Link href={`/${lang}/contact`} className="text-gray-700 transition hover:text-primary font-medium">
+            {t.contact}
+          </Link>
         </div>
-        {/* Sélecteur de langue */}
-        <div className="blog-lang-selector">
-          <Link href="/fr/blog" className={lang === "fr" ? "active" : ""}>FR</Link>
-          <span>|</span>
-          <Link href="/en/blog" className={lang === "en" ? "active" : ""}>EN</Link>
+        <div className="flex items-center gap-2 rounded-full bg-white px-3 py-1 shadow-sm">
+          <Link href="/fr/blog" className={`rounded-full px-3 py-1 text-sm font-semibold transition ${lang === "fr" ? "bg-primary text-white" : "text-gray-700 hover:bg-gray-200"}`}>
+            FR
+          </Link>
+          <span className="text-gray-400">|</span>
+          <Link href="/en/blog" className={`rounded-full px-3 py-1 text-sm font-semibold transition ${lang === "en" ? "bg-primary text-white" : "text-gray-700 hover:bg-gray-200"}`}>
+            EN
+          </Link>
         </div>
       </nav>
 
-      {/* BLOG GRID - style comme services-grid */}
-      <section className="blog-grid">
+      {/* GRILLE DES ARTICLES */}
+      <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <article key={post.slug} className="blog-card">
-            <span className="blog-card-category">
+          <article key={post.slug} className="flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            {/* Catégorie */}
+            <span className="mb-3 self-start rounded-full bg-gradient-to-r from-primary to-secondary px-3 py-1 text-xs font-semibold text-white shadow-sm">
               {translateCategory(post.category, lang)}
             </span>
 
-            <h2 className="blog-card-title">
-              <Link href={`/${lang}/blog/${post.slug}`}>
+            {/* Titre */}
+            <h2 className="mb-2 text-xl font-bold text-gray-900 line-clamp-2">
+              <Link href={`/${lang}/blog/${post.slug}`} className="hover:text-primary transition">
                 {post.title}
               </Link>
             </h2>
 
-            <p className="blog-card-description">{post.description}</p>
+            {/* Description */}
+            <p className="mb-4 flex-1 text-gray-600 line-clamp-3">{post.description}</p>
 
-            <div className="blog-card-tags">
+            {/* Tags */}
+            <div className="mb-4 flex flex-wrap gap-2">
               {post.tags?.map((tag: string) => (
-                <span key={tag} className="blog-card-tag">
+                <span key={tag} className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600 transition hover:bg-primary/10 hover:text-primary">
                   #{translateTag(tag, lang)}
                 </span>
               ))}
             </div>
 
-            <Link href={`/${lang}/blog/${post.slug}`} className="blog-card-link">
+            {/* Lire la suite */}
+            <Link href={`/${lang}/blog/${post.slug}`} className="inline-flex items-center gap-1 text-primary font-semibold transition hover:gap-2 hover:underline">
               {t.readMore}
             </Link>
           </article>

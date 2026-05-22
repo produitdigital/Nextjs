@@ -1,4 +1,5 @@
 import "../globals.css";
+import Header from "@/components/Header";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -7,7 +8,10 @@ interface LayoutProps {
 
 export default async function LangLayout({ children, params }: LayoutProps) {
   const { lang } = await params;
-
-  // ✅ Plus d'import de Header - juste les enfants
-  return <>{children}</>;
+  return (
+    <>
+      <Header lang={lang} />
+      <main className="pt-20">{children}</main>
+    </>
+  );
 }
