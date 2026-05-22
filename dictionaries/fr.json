@@ -1,13 +1,127 @@
 {
+  "metadata": {
+    "title": "Assistant Virtuel Comptable | Comptabilité Freelance Professionnelle",
+    "description": "Assistant virtuel en comptabilité pour PME et entrepreneurs : tenue de livre, rapprochement bancaire, écritures comptables, suivi clients et fournisseurs."
+  },
   "navigation": {
-    "home": "Accueil",
-    "services": "Services",
-    "blog": "Blog",
-    "contact": "Contact"
+    "services": "SERVICES",
+    "about": "À PROPOS",
+    "blog": "BLOG",
+    "contact": "CONTACT"
   },
   "hero": {
-    "title": "Assistant Virtuel Comptable",
-    "description": "Services comptables professionnels à distance pour PME et entrepreneurs.",
-    "cta": "Demander un devis"
+    "title": "Libérez-vous de votre gestion administrative et pré-comptable",
+    "description": "Gagnez du temps au quotidien. Un accompagnement flexible, sur mesure et 100% à distance adapté aux PME, freelances et entrepreneurs.",
+    "cta": "Demander un devis gratuit"
+  },
+  "benefits": {
+    "zero_charge": {
+      "title": "Zéro charge sociale",
+      "description": "Prestataire externe indépendant"
+    },
+    "flexibility": {
+      "title": "Flexibilité totale",
+      "description": "Prestation à l'heure ou au forfait"
+    },
+    "partner": {
+      "title": "Allié de votre Expert-Comptable",
+      "description": "Préparation et tri rigoureux des pièces"
+    }
+  },
+  "services": {
+    "title": "Les services que j'offre",
+    "list": {
+      "bookkeeping": "Tenue de livre",
+      "bank_reconciliation": "Rapprochement bancaire",
+      "precompta": "Pré-comptabilité",
+      "accounting_entries": "Écritures comptables",
+      "client_followup": "Suivi clients",
+      "supplier_followup": "Suivi fournisseurs",
+      "payments_salaries": "Paiements & salaires"
+    },
+    "saisie": {
+      "title": "Saisie Comptable",
+      "desc": "Service professionnel de saisie comptable et d'écritures"
+    },
+    "relance": {
+      "title": "Relance Factures",
+      "desc": "Gestion et suivi des relances clients impayés"
+    },
+    "precompta": {
+      "title": "Pré-comptabilité",
+      "desc": "Préparation et classification des documents comptables"
+    }
+  },
+  "servicesPage": {
+    "title": "Nos Expertises en Gestion",
+    "subtitle": "Des solutions ciblées pour optimiser votre flux financier.",
+    "whyTitle": "Pourquoi cette organisation ?",
+    "whyText": "Chaque aspect de votre comptabilité mérite une attention particulière. Notre structure permet une gestion modulaire adaptée à votre volume d'activité.",
+    "learnMore": "En savoir plus →"
+  },
+  "process": {
+    "title": "Comment collaborer ensemble ?",
+    "step1": {
+      "title": "1. Premier contact",
+      "description": "Nous faisons le point gratuitement sur vos besoins."
+    },
+    "step2": {
+      "title": "2. Mise en place",
+      "description": "Vous me partagez des accès sécurisés à vos outils."
+    },
+    "step3": {
+      "title": "3. Sérénité mensuelle",
+      "description": "Je gère vos relances et votre pré-comptabilité."
+    }
+  },
+  "about": {
+    "title": "À Propos de Moi",
+    "description": "Assistant virtuel spécialisé en gestion administrative et pré-comptabilité.",
+    "pack_office": "Pack Office",
+    "pack_office_items": ["Word, Excel, PowerPoint, Access, Outlook"],
+    "accounting_software": "Logiciels comptables",
+    "accounting_software_items": ["QuickBooks, ZohoBooks, Sage 100, Navision, Sage Saari"],
+    "google_workspace": "Google Workspace",
+    "google_workspace_items": ["Gmail, Google Sheets, Drive, Calendar"],
+    "other_tools": "Autres outils",
+    "other_tools_items": ["Canva, Trello, Notion"],
+    "goal": "Simplifier votre gestion financière avec un service à distance efficace."
+  },
+  "security": {
+    "title": "Confidentialité & Sécurité de vos données",
+    "description": "Soumis au secret professionnel, je protège vos données conformément au RGPD."
+  },
+  "testimonials": {
+    "title": "Témoignages Clients",
+    "subtitle": "Quelques retours de clients satisfaits.",
+    "cards": [
+      {
+        "text": "Service très professionnel et rapide.",
+        "client": "Client PME",
+        "role": "Entreprise locale"
+      },
+      {
+        "text": "Excellent assistant virtuel.",
+        "client": "Entrepreneur Freelance",
+        "role": "Business en ligne"
+      },
+      {
+        "text": "Je recommande vivement ses services.",
+        "client": "Startup Client",
+        "role": "PME & Startup"
+      }
+    ]
+  },
+  "faq": {
+    "questions": [
+      {
+        "name": "Quels services propose un assistant virtuel comptable ?",
+        "answer": "Tenue de livre, rapprochement bancaire, gestion des factures."
+      },
+      {
+        "name": "Travaillez-vous entièrement à distance ?",
+        "answer": "Oui, 100% des services sont réalisés à distance."
+      }
+    ]
   }
 }

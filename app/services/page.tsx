@@ -1,145 +1,100 @@
-import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
+import Image from "next/image";
 
-export const metadata = {
-  title: "Services Comptables Freelance | Assistant Virtuel Professionnel",
-  description:
-    "Services comptables professionnels à distance : tenue de livre, rapprochement bancaire, pré-comptabilité, suivi clients et fournisseurs, paiements et gestion financière.",
-  robots: "index, follow",
-  alternates: {
-    canonical: "https://virtuel-comptable.web.app/services",
-  },
-  openGraph: {
-    title: "Services Comptables Freelance",
-    description:
-      "Services de comptabilité à distance pour PME et entrepreneurs.",
-    url: "https://virtuel-comptable.web.app/services",
-    type: "website",
-  },
-};
+export default function ServicesHubPage() {
+  const serviceSilos = [
+    {
+      title: "Saisie Comptable",
+      slug: "saisie-comptable",
+      desc: "Saisie rigoureuse de vos pièces justificatives et rapprochement bancaire mensuel.",
+      icon: "📑",
+      iconBg: "#EFF6FF"
+    },
+    {
+      title: "Relance Factures",
+      slug: "relance-factures",
+      desc: "Gestion du poste clients, suivi des impayés et relances professionnelles.",
+      icon: "📧",
+      iconBg: "#FEF3C7"
+    },
+    {
+      title: "Pré-comptabilité",
+      slug: "pre-comptabilite",
+      desc: "Préparation et organisation complète de vos documents pour votre expert-comptable.",
+      icon: "📂",
+      iconBg: "#ECFDF5"
+    }
+  ];
 
-export default function ServicesPage() {
   return (
     <>
-      {/* 🧠 SCHEMA.ORG SEO */}
-      <Script
-        id="schema-services"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ProfessionalService",
-            name: "Assistant Virtuel Comptable",
-            url: "https://virtuel-comptable.web.app/services",
-            description:
-              "Services comptables professionnels à distance pour PME et entrepreneurs.",
-            areaServed: "Worldwide",
-            serviceType: [
-              "Tenue de livre",
-              "Rapprochement bancaire",
-              "Pré-comptabilité",
-              "Gestion financière",
-              "Suivi clients",
-              "Suivi fournisseurs",
-              "Paiements et salaires",
-            ],
-          }),
-        }}
-      />
+      {/* Header de Navigation */}
+      <header className="services-nav-header">
+        <nav className="services-navbar">
+          <Link href="/" className="services-logo">
+            Virtuel<span>Comptable</span>
+          </Link>
+          <div className="services-nav-links">
+            <Link href="/services" className="services-nav-link active">
+              Services
+            </Link>
+            <Link href="/about" className="services-nav-link">
+              À Propos
+            </Link>
+            <Link href="/blog" className="services-nav-link">
+              Blog
+            </Link>
+            <Link href="/contact" className="services-nav-link">
+              Contact
+            </Link>
+          </div>
+          <Link href="/contact" className="services-cta-btn">
+            Devis Gratuit
+          </Link>
+        </nav>
+      </header>
 
-      <main>
-
-        {/* HEADER */}
-        <header className="header">
-          <h1>Mes Services Comptables</h1>
-
-          <p>
-            Solutions professionnelles de comptabilité à distance pour entreprises, startups et PME.
+      {/* Hero Section */}
+      <section className="services-hero">
+        <div className="services-hero-content">
+          <h1 className="services-hero-title">
+            Nos Expertises en Gestion
+          </h1>
+          <p className="services-hero-subtitle">
+            Des solutions ciblées pour optimiser votre flux financier.
           </p>
+        </div>
+      </section>
 
-          <nav className="navbar">
-            <Link href="/">Accueil</Link>
-            <Link href="/about">À Propos</Link>
-            <Link href="/services">Services</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/contact">Contact</Link>
-          </nav>
-        </header>
+      {/* Services Grid */}
+      <main className="services-main">
+        <div className="services-container">
+          <div className="services-grid">
+            {serviceSilos.map((silo) => (
+              <div key={silo.slug} className="services-card">
+                <div className="services-card-icon" style={{ backgroundColor: silo.iconBg }}>
+                  <span>{silo.icon}</span>
+                </div>
+                <h3 className="services-card-title">{silo.title}</h3>
+                <p className="services-card-desc">{silo.desc}</p>
+                <Link href={`/services/${silo.slug}`} className="services-card-link">
+                  En savoir plus →
+                </Link>
+              </div>
+            ))}
+          </div>
 
-        {/* SECTION 1 */}
-        <section>
-
-          <Image
-            src="/images/Assistant-Viruel.webp"
-            alt="Services comptables professionnels pour PME et entrepreneurs"
-            width={800}
-            height={600}
-          />
-
-          <h2>💼 Services comptables professionnels à distance</h2>
-
-          <ul>
-            <li>Tenue de livre comptable pour entreprises et PME</li>
-            <li>Rapprochement bancaire précis et fiable</li>
-            <li>Pré-comptabilité et organisation financière</li>
-            <li>Écritures comptables professionnelles</li>
-            <li>Comptabilisation des opérations</li>
-            <li>Suivi clients et facturation</li>
-            <li>Suivi fournisseurs</li>
-            <li>Paiements et gestion des salaires</li>
-          </ul>
-
-        </section>
-
-        {/* SECTION 2 */}
-        <section>
-
-          <Image
-            src="/images/financial-charts.webp"
-            alt="Analyse financière et gestion comptable professionnelle"
-            width={800}
-            height={600}
-          />
-
-          <h2>📊 Pourquoi travailler avec moi ?</h2>
-
-          <p>
-            Je vous aide à optimiser votre gestion financière et à gagner du temps grâce à une comptabilité fiable, organisée et professionnelle.
-          </p>
-
-          <p>
-            Mon objectif est de vous permettre de vous concentrer sur le développement de votre entreprise.
-          </p>
-
-        </section>
-
-        {/* SECTION 3 */}
-        <section>
-          <h2>⭐ Qualité de service</h2>
-
-          <p>
-            Service sérieux, rapide et adapté aux besoins des entrepreneurs, freelances et PME.
-          </p>
-        </section>
-
-        {/* CTA */}
-<section className="text-center">
-
-  <h2>🚀 Prêt à collaborer ?</h2>
-
-  <p>
-    Contactez-moi pour un service comptable professionnel et fiable.
-  </p>
-
-  <div className="cta-wrapper">
-    <Link href="/contact" className="cta-button">
-      Demander un devis
-    </Link>
-  </div>
-
-</section>
-
+          {/* Why Section */}
+          <section className="services-why">
+            <div className="services-why-content">
+              <h2 className="services-why-title">Pourquoi cette organisation ?</h2>
+              <p className="services-why-text">
+                Chaque aspect de votre comptabilité mérite une attention particulière. 
+                Notre structure permet une gestion modulaire adaptée à votre volume d'activité.
+              </p>
+            </div>
+          </section>
+        </div>
       </main>
     </>
   );

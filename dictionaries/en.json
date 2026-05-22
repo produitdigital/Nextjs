@@ -1,13 +1,127 @@
 {
+  "metadata": {
+    "title": "Virtual Accounting Assistant | Professional Freelance Accounting",
+    "description": "Virtual accounting assistant for SMEs and entrepreneurs: bookkeeping, bank reconciliation, accounting entries, client and supplier management."
+  },
   "navigation": {
-    "home": "Home",
-    "services": "Services",
-    "blog": "Blog",
-    "contact": "Contact"
+    "services": "SERVICES",
+    "about": "ABOUT",
+    "blog": "BLOG",
+    "contact": "CONTACT"
   },
   "hero": {
-    "title": "Virtual Accounting Assistant",
-    "description": "Professional remote accounting services for SMEs and entrepreneurs.",
-    "cta": "Get a quote"
+    "title": "Free yourself from administrative and pre-accounting management",
+    "description": "Save time daily. Flexible, tailor-made and 100% remote support for SMEs, freelancers and entrepreneurs.",
+    "cta": "Request a free quote"
+  },
+  "benefits": {
+    "zero_charge": {
+      "title": "Zero social charges",
+      "description": "Independent external provider"
+    },
+    "flexibility": {
+      "title": "Total flexibility",
+      "description": "Hourly or flat-rate service"
+    },
+    "partner": {
+      "title": "Your Accountant's Ally",
+      "description": "Rigorous preparation and sorting of documents"
+    }
+  },
+  "services": {
+    "title": "Services I offer",
+    "list": {
+      "bookkeeping": "Bookkeeping",
+      "bank_reconciliation": "Bank reconciliation",
+      "precompta": "Pre-accounting",
+      "accounting_entries": "Accounting entries",
+      "client_followup": "Client follow-up",
+      "supplier_followup": "Supplier follow-up",
+      "payments_salaries": "Payments & salaries"
+    },
+    "saisie": {
+      "title": "Bookkeeping",
+      "desc": "Professional bookkeeping and accounting entries service"
+    },
+    "relance": {
+      "title": "Invoice Reminders",
+      "desc": "Client reminder management and follow-up"
+    },
+    "precompta": {
+      "title": "Pre-accounting",
+      "desc": "Preparation and classification of accounting documents"
+    }
+  },
+  "servicesPage": {
+    "title": "Our Management Expertise",
+    "subtitle": "Targeted solutions to optimize your financial flow.",
+    "whyTitle": "Why this organization?",
+    "whyText": "Every aspect of your accounting deserves special attention. Our structure allows for modular management adapted to your business volume.",
+    "learnMore": "Learn more →"
+  },
+  "process": {
+    "title": "How do we collaborate?",
+    "step1": {
+      "title": "1. First contact",
+      "description": "We assess your needs for free."
+    },
+    "step2": {
+      "title": "2. Setup",
+      "description": "You share secure access to your tools."
+    },
+    "step3": {
+      "title": "3. Monthly peace of mind",
+      "description": "I handle your reminders and pre-accounting."
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Virtual assistant specialized in administrative and pre-accounting management.",
+    "pack_office": "Office Pack",
+    "pack_office_items": ["Word, Excel, PowerPoint, Access, Outlook"],
+    "accounting_software": "Accounting Software",
+    "accounting_software_items": ["QuickBooks, ZohoBooks, Sage 100, Navision, Sage Saari"],
+    "google_workspace": "Google Workspace",
+    "google_workspace_items": ["Gmail, Google Sheets, Drive, Calendar"],
+    "other_tools": "Other Tools",
+    "other_tools_items": ["Canva, Trello, Notion"],
+    "goal": "Simplify your financial management with efficient remote service."
+  },
+  "security": {
+    "title": "Confidentiality & Data Security",
+    "description": "Bound by professional secrecy, I protect your data in compliance with GDPR."
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "Some feedback from satisfied clients.",
+    "cards": [
+      {
+        "text": "Very professional and fast service.",
+        "client": "SME Client",
+        "role": "Local Business"
+      },
+      {
+        "text": "Excellent virtual assistant.",
+        "client": "Freelance Entrepreneur",
+        "role": "Online Business"
+      },
+      {
+        "text": "I highly recommend their services.",
+        "client": "Startup Client",
+        "role": "SME & Startup"
+      }
+    ]
+  },
+  "faq": {
+    "questions": [
+      {
+        "name": "What services does a virtual accounting assistant offer?",
+        "answer": "Bookkeeping, bank reconciliation, invoice management."
+      },
+      {
+        "name": "Do you work entirely remotely?",
+        "answer": "Yes, 100% of services are performed remotely."
+      }
+    ]
   }
 }
