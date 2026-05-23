@@ -9,17 +9,36 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const dict = await getDictionary(lang);
 
   return {
-    title: dict.metadata?.title || "Assistant Virtuel Comptable",
-    description: dict.metadata?.description || "Assistant virtuel en comptabilité pour PME",
-    robots: "index, follow",
-    openGraph: {
-      title: dict.metadata?.title || "Assistant Virtuel Comptable",
-      description: dict.metadata?.description || "Services de comptabilité virtuelle professionnels",
-      url: "https://virtuel-comptable.web.app/",
-      type: "website",
-    },
-  };
-}
+  title:
+    dict.metadata?.title ||
+    "Assistant Virtuel Comptable",
+
+  description:
+    dict.metadata?.description ||
+    "Assistant virtuel en comptabilité pour PME",
+
+  robots: "index, follow",
+
+  alternates: {
+    canonical: `https://virtuel-compta.vercel.app/${lang}`,
+  },
+
+  openGraph: {
+    title:
+      dict.metadata?.title ||
+      "Assistant Virtuel Comptable",
+
+    description:
+      dict.metadata?.description ||
+      "Services de comptabilité virtuelle professionnels",
+
+    url: `https://virtuel-compta.vercel.app/${lang}`,
+
+    type: "website",
+
+    locale: lang === "fr" ? "fr_FR" : "en_US",
+  },
+};
 
 export default async function Page({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
