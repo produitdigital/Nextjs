@@ -1,4 +1,4 @@
-import Link from "next/link";
+returneturnmport Link from "next/link";
 import { Metadata } from "next";
 import { getDictionary } from "@/lib/get-dictionary";
 
@@ -10,16 +10,55 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { lang } = await params;
 
   return {
-    title: lang === "fr"
+  title:
+    lang === "fr"
       ? "Nos Services Comptables | Assistant Virtuel"
       : "Our Accounting Services | Virtual Assistant",
-    description: lang === "fr"
+
+  description:
+    lang === "fr"
       ? "Découvrez nos services de saisie comptable, relance factures et pré-comptabilité pour freelances et PME."
       : "Discover our accounting services: bookkeeping, invoice reminders and pre-accounting for freelancers and SMEs.",
-  };
-}
 
-export default async function ServicesHubPage({ params }: PageProps) {
+  alternates: {
+    canonical: `https://virtuel-compta.vercel.app/${lang}/services`,
+    languages: {
+      fr: "https://virtuel-compta.vercel.app/fr/services",
+      en: "https://virtuel-compta.vercel.app/en/services",
+    },
+  },
+
+  openGraph: {
+    title:
+      lang === "fr"
+        ? "Nos Services Comptables"
+        : "Our Accounting Services",
+
+    description:
+      lang === "fr"
+        ? "Services de comptabilité pour freelances et PME"
+        : "Accounting services for freelancers and SMEs",
+
+    url: `https://virtuel-compta.vercel.app/${lang}/services`,
+    siteName: "Virtuel Comptable",
+    type: "website",
+    locale: lang === "fr" ? "fr_FR" : "en_US",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title:
+      lang === "fr"
+        ? "Nos Services Comptables"
+        : "Our Accounting Services",
+
+    description:
+      lang === "fr"
+        ? "Assistant comptable virtuel pour PME"
+        : "Virtual accounting assistant for SMEs",
+  },
+};
+defaultrt default async function ServicesHubPage({ params }: PageProps) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
 
