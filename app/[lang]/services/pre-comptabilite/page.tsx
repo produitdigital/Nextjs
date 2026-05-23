@@ -1,4 +1,4 @@
-returneturnmport Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import { getDictionary } from "@/lib/get-dictionary";
@@ -11,59 +11,41 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { lang } = await params;
 
   return {
-  title:
-    lang === "fr"
+    title: lang === "fr"
       ? "Pré-comptabilité & Organisation Documentaire | Assistant Virtuel"
       : "Pre-accounting & Document Organization | Virtual Assistant",
-
-  description:
-    lang === "fr"
+    description: lang === "fr"
       ? "Préparez sereinement vos documents pour votre expert-comptable avec un service de pré-comptabilité professionnel."
       : "Prepare your documents for your chartered accountant with a professional pre-accounting service.",
-
-  alternates: {
-    canonical: `https://virtuel-compta.vercel.app/${lang}/services/pre-comptabilite`,
-
-    languages: {
-      fr: "https://virtuel-compta.vercel.app/fr/services/pre-comptabilite",
-      en: "https://virtuel-compta.vercel.app/en/services/pre-comptabilite",
+    alternates: {
+      canonical: `https://virtuel-compta.vercel.app/${lang}/services/pre-comptabilite`,
+      languages: {
+        fr: "https://virtuel-compta.vercel.app/fr/services/pre-comptabilite",
+        en: "https://virtuel-compta.vercel.app/en/services/pre-comptabilite",
+      },
     },
-  },
-
-  openGraph: {
-    title:
-      lang === "fr"
+    openGraph: {
+      title: lang === "fr"
         ? "Pré-comptabilité & Organisation Documentaire"
         : "Pre-accounting & Document Organization",
-
-    description:
-      lang === "fr"
+      description: lang === "fr"
         ? "Service professionnel de pré-comptabilité pour PME et freelances."
         : "Professional pre-accounting service for SMEs and freelancers.",
-
-    url: `https://virtuel-compta.vercel.app/${lang}/services/pre-comptabilite`,
-
-    siteName: "Virtuel Comptable",
-
-    type: "website",
-
-    locale: lang === "fr" ? "fr_FR" : "en_US",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-
-    title:
-      lang === "fr"
+      url: `https://virtuel-compta.vercel.app/${lang}/services/pre-comptabilite`,
+      siteName: "Virtuel Comptable",
+      type: "website",
+      locale: lang === "fr" ? "fr_FR" : "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: lang === "fr"
         ? "Pré-comptabilité & Organisation Documentaire"
         : "Pre-accounting & Document Organization",
-
-    description:
-      lang === "fr"
+      description: lang === "fr"
         ? "Service de pré-comptabilité professionnel pour entreprises."
         : "Professional pre-accounting service for businesses.",
-  },
-};
+    },
+  };
 }
 
 export default async function PreComptabilitePage({ params }: PageProps) {
@@ -74,35 +56,39 @@ export default async function PreComptabilitePage({ params }: PageProps) {
     fr: {
       backToServices: "← Retour aux services",
       title: "Pré-comptabilité et organisation documentaire",
-      description: "Préparez sereinement vos documents pour votre expert-comptable. Un service professionnel de pré-comptabilité pour gagner du temps et réduire les erreurs.",
+      description:
+        "Préparez sereinement vos documents pour votre expert-comptable. Un service professionnel de pré-comptabilité pour gagner du temps et réduire les erreurs.",
       subtitle: "Ce que je prends en charge :",
       features: [
         "Classement des pièces justificatives",
         "Préparation des liasses fiscales",
         "Vérification des écritures",
-        "Archivage numérique sécurisé"
+        "Archivage numérique sécurisé",
       ],
       benefitTitle: "Le bénéfice pour vous",
-      benefitText: "Gagnez du temps et réduisez les erreurs avec une pré-comptabilité parfaitement structurée. Vos documents sont prêts pour votre expert-comptable.",
+      benefitText:
+        "Gagnez du temps et réduisez les erreurs avec une pré-comptabilité parfaitement structurée. Vos documents sont prêts pour votre expert-comptable.",
       ctaText: "Organiser ma pré-comptabilité",
-      imageAlt: "Pré-comptabilité organisée"
+      imageAlt: "Pré-comptabilité organisée",
     },
     en: {
       backToServices: "← Back to services",
       title: "Pre-accounting and document organization",
-      description: "Prepare your documents for your chartered accountant with peace of mind. A professional pre-accounting service to save time and reduce errors.",
+      description:
+        "Prepare your documents for your chartered accountant with peace of mind. A professional pre-accounting service to save time and reduce errors.",
       subtitle: "What I take care of:",
       features: [
         "Filing of supporting documents",
         "Preparation of tax packages",
         "Entry verification",
-        "Secure digital archiving"
+        "Secure digital archiving",
       ],
       benefitTitle: "The benefit for you",
-      benefitText: "Save time and reduce errors with perfectly structured pre-accounting. Your documents are ready for your chartered accountant.",
+      benefitText:
+        "Save time and reduce errors with perfectly structured pre-accounting. Your documents are ready for your chartered accountant.",
       ctaText: "Organize my pre-accounting",
-      imageAlt: "Organized pre-accounting"
-    }
+      imageAlt: "Organized pre-accounting",
+    },
   };
 
   const t = texts[lang as "fr" | "en"] || texts.fr;

@@ -1,4 +1,4 @@
-returneturnmport Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { Metadata } from "next";
@@ -12,79 +12,55 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { lang } = await params;
 
   return {
-  title:
-    lang === "fr"
+    title: lang === "fr"
       ? "À Propos | Assistant Virtuel en Comptabilité Professionnel"
       : "About | Professional Virtual Accounting Assistant",
-
-  description:
-    lang === "fr"
+    description: lang === "fr"
       ? "Découvrez mon parcours en comptabilité, mes compétences et mon expertise en gestion financière pour PME et entrepreneurs."
       : "Discover my background in accounting, my skills and my expertise in financial management for SMEs and entrepreneurs.",
-
-  robots: "index, follow",
-
-  authors: [{ name: "Assistant Virtuel Comptabilité" }],
-
-  alternates: {
-    canonical: `https://virtuel-compta.vercel.app/${lang}/about`,
-
-    languages: {
-      fr: "https://virtuel-compta.vercel.app/fr/about",
-      en: "https://virtuel-compta.vercel.app/en/about",
+    robots: "index, follow",
+    authors: [{ name: "Assistant Virtuel Comptabilité" }],
+    alternates: {
+      canonical: `https://virtuel-compta.vercel.app/${lang}/about`,
+      languages: {
+        fr: "https://virtuel-compta.vercel.app/fr/about",
+        en: "https://virtuel-compta.vercel.app/en/about",
+      },
     },
-  },
-
-  openGraph: {
-    title:
-      lang === "fr"
+    openGraph: {
+      title: lang === "fr"
         ? "À Propos | Assistant Virtuel Comptabilité"
         : "About | Virtual Accounting Assistant",
-
-    description:
-      lang === "fr"
+      description: lang === "fr"
         ? "Parcours professionnel et expertise en comptabilité et gestion financière."
         : "Professional background and expertise in accounting and financial management.",
-
-    url: `https://virtuel-compta.vercel.app/${lang}/about`,
-
-    type: "website",
-
-    siteName: "Virtuel Comptable",
-
-    locale: lang === "fr" ? "fr_FR" : "en_US",
-
-    images: [
-      {
-        url: "https://virtuel-compta.vercel.app/images/profil.webp",
-        width: 800,
-        height: 600,
-        alt:
-          lang === "fr"
+      url: `https://virtuel-compta.vercel.app/${lang}/about`,
+      type: "website",
+      siteName: "Virtuel Comptable",
+      locale: lang === "fr" ? "fr_FR" : "en_US",
+      images: [
+        {
+          url: "https://virtuel-compta.vercel.app/images/profil.webp",
+          width: 800,
+          height: 600,
+          alt: lang === "fr"
             ? "Assistant virtuel comptable professionnel"
             : "Professional virtual accounting assistant",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-
-    title:
-      lang === "fr"
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: lang === "fr"
         ? "À Propos | Assistant Virtuel Comptabilité"
         : "About | Virtual Accounting Assistant",
-
-    description:
-      lang === "fr"
+      description: lang === "fr"
         ? "Expert en comptabilité et gestion financière à distance."
         : "Expert in remote accounting and financial management.",
-
-    images: [
-      "https://virtuel-compta.vercel.app/images/profil.webp",
-    ],
-  },
-};
+      images: ["https://virtuel-compta.vercel.app/images/profil.webp"],
+    },
+  };
+}
 
 export default async function AboutPage({ params }: PageProps) {
   const { lang } = await params;
@@ -94,7 +70,7 @@ export default async function AboutPage({ params }: PageProps) {
   const texts = {
     fr: {
       title: "À Propos de Moi",
-      subtitle: "Assistanspécialiséspécialisé en comptabilité et gestion financière pour entreprises et PME.",
+      subtitle: "Assistant virtuel spécialisé en comptabilité et gestion financière pour entreprises et PME.",
       navHome: "Accueil",
       navServices: "Services",
       navBlog: "Blog",
@@ -123,7 +99,7 @@ export default async function AboutPage({ params }: PageProps) {
       ctaButton: "Me contacter",
       contactTitle: "📞 Contact rapide",
       email: "Email :",
-      phone: "Téléphone :"
+      phone: "Téléphone :",
     },
     en: {
       title: "About Me",
@@ -156,8 +132,8 @@ export default async function AboutPage({ params }: PageProps) {
       ctaButton: "Contact me",
       contactTitle: "📞 Quick contact",
       email: "Email:",
-      phone: "Phone:"
-    }
+      phone: "Phone:",
+    },
   };
 
   const t = texts[lang as "fr" | "en"] || texts.fr;

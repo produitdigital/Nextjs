@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     locale: lang === "fr" ? "fr_FR" : "en_US",
   },
 };
-
+}
 export default async function Page({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);

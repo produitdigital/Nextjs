@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://virtuelcomptable.web.app
+Host: https://virtuel-compta.vercel.app
 
 # Sitemaps
-Sitemap: https://virtuelcomptable.web.app/sitemap.xml
+Sitemap: https://virtuel-compta.vercel.app/sitemap.xml
