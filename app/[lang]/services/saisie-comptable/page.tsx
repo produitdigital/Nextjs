@@ -11,13 +11,59 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { lang } = await params;
 
   return {
-    title: lang === "fr"
+  title:
+    lang === "fr"
       ? "Saisie Comptable & Rapprochement | Assistant Virtuel"
       : "Bookkeeping & Bank Reconciliation | Virtual Assistant",
-    description: lang === "fr"
+
+  description:
+    lang === "fr"
       ? "Service professionnel de saisie des pièces comptables et rapprochement bancaire pour PME."
       : "Professional bookkeeping and bank reconciliation service for SMEs.",
-  };
+
+  alternates: {
+    canonical: `https://virtuel-compta.vercel.app/${lang}/services/saisie-comptable`,
+
+    languages: {
+      fr: "https://virtuel-compta.vercel.app/fr/services/saisie-comptable",
+      en: "https://virtuel-compta.vercel.app/en/services/saisie-comptable",
+    },
+  },
+
+  openGraph: {
+    title:
+      lang === "fr"
+        ? "Saisie Comptable & Rapprochement"
+        : "Bookkeeping & Bank Reconciliation",
+
+    description:
+      lang === "fr"
+        ? "Service de saisie comptable et rapprochement bancaire pour PME."
+        : "Bookkeeping and bank reconciliation service for SMEs.",
+
+    url: `https://virtuel-compta.vercel.app/${lang}/services/saisie-comptable`,
+
+    siteName: "Virtuel Comptable",
+
+    type: "website",
+
+    locale: lang === "fr" ? "fr_FR" : "en_US",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title:
+      lang === "fr"
+        ? "Saisie Comptable & Rapprochement"
+        : "Bookkeeping & Bank Reconciliation",
+
+    description:
+      lang === "fr"
+        ? "Gestion comptable professionnelle pour entreprises."
+        : "Professional accounting management for businesses.",
+  },
+};
 }
 
 export default async function SaisieComptablePage({ params }: PageProps) {
