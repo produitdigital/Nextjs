@@ -110,13 +110,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Contenu principal */}
         {children}
-
-        {/* Footer stylé avec Tailwind */}
-          <footer className="mt-16 border-t border-gray-200 bg-gray-50 py-8 text-center text-gray-500">
-          <div className="container mx-auto px-4">
-            <p>© {new Date().getFullYear()} Assistant Virtuel Comptable. Tous droits réservés.</p>
-          </div>
-        </footer>
       </body>
     </html>
   );

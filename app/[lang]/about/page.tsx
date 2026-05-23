@@ -160,12 +160,6 @@ export default async function AboutPage({ params }: PageProps) {
             </div>
             <h1 className="mb-3 text-3xl font-extrabold text-gray-900 md:text-4xl">{t.title}</h1>
             <p className="mb-6 text-lg text-gray-600">{t.subtitle}</p>
-            <nav className="flex flex-wrap justify-center gap-4">
-              <Link href={`/${lang}`} className="rounded-full bg-white px-4 py-2 text-gray-700 shadow-sm transition hover:bg-primary hover:text-white">{t.navHome}</Link>
-              <Link href={`/${lang}/services`} className="rounded-full bg-white px-4 py-2 text-gray-700 shadow-sm transition hover:bg-primary hover:text-white">{t.navServices}</Link>
-              <Link href={`/${lang}/blog`} className="rounded-full bg-white px-4 py-2 text-gray-700 shadow-sm transition hover:bg-primary hover:text-white">{t.navBlog}</Link>
-              <Link href={`/${lang}/contact`} className="rounded-full bg-white px-4 py-2 text-gray-700 shadow-sm transition hover:bg-primary hover:text-white">{t.navContact}</Link>
-            </nav>
           </div>
         </header>
 

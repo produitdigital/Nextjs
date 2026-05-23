@@ -88,43 +88,6 @@ export default async function ServicesHubPage({ params }: PageProps) {
 
   return (
     <>
-      {/* Header de Navigation - Version Tailwind */}
-      <header className="sticky top-0 z-50 bg-white shadow-sm">
-        <nav className="container mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-4 md:px-6">
-          <Link href={`/${lang}`} className="text-xl font-bold text-gray-800">
-            Virtuel<span className="text-primary">Comptable</span>
-          </Link>
-
-          <div className="flex flex-wrap items-center gap-4 md:gap-6">
-            <Link href={`/${lang}`} className="text-gray-700 transition hover:text-primary font-medium">
-              {t.navHome}
-            </Link>
-            <Link href={`/${lang}/services`} className="text-primary border-b-2 border-primary font-medium">
-              {t.navServices}
-            </Link>
-            <Link href={`/${lang}/about`} className="text-gray-700 transition hover:text-primary font-medium">
-              {t.navAbout}
-            </Link>
-            <Link href={`/${lang}/blog`} className="text-gray-700 transition hover:text-primary font-medium">
-              {t.navBlog}
-            </Link>
-            <Link href={`/${lang}/contact`} className="text-gray-700 transition hover:text-primary font-medium">
-              {t.navContact}
-            </Link>
-          </div>
-
-          <Link href={`/${lang}/contact`} className="rounded-full bg-gradient-to-r from-primary to-secondary px-5 py-2 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5">
-            {t.ctaBtn}
-          </Link>
-
-          {/* Sélecteur de langue */}
-          <div className="flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1">
-            <Link href="/fr/services" className={`rounded-full px-2 py-1 text-sm font-semibold transition ${lang === "fr" ? "bg-primary text-white" : "text-gray-600"}`}>FR</Link>
-            <span className="text-gray-400">|</span>
-            <Link href="/en/services" className={`rounded-full px-2 py-1 text-sm font-semibold transition ${lang === "en" ? "bg-primary text-white" : "text-gray-600"}`}>EN</Link>
-          </div>
-        </nav>
-      </header>
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 to-indigo-50 px-4 py-16 text-center md:py-20">
