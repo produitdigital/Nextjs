@@ -1,4 +1,4 @@
-import Image from "next/image";
+returneturnmport Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import { getDictionary } from "@/lib/get-dictionary";
@@ -11,13 +11,59 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { lang } = await params;
 
   return {
-    title: lang === "fr"
+  title:
+    lang === "fr"
       ? "Gestion du Poste Clients & Relance Factures | Assistant Virtuel"
       : "Customer Management & Invoice Reminders | Virtual Assistant",
-    description: lang === "fr"
+
+  description:
+    lang === "fr"
       ? "Optimisez votre trésorerie avec un suivi rigoureux des factures impayées et des relances clients diplomatiques."
       : "Optimize your cash flow with rigorous tracking of unpaid invoices and diplomatic customer reminders.",
-  };
+
+  alternates: {
+    canonical: `https://virtuel-compta.vercel.app/${lang}/services/relance-factures`,
+
+    languages: {
+      fr: "https://virtuel-compta.vercel.app/fr/services/relance-factures",
+      en: "https://virtuel-compta.vercel.app/en/services/relance-factures",
+    },
+  },
+
+  openGraph: {
+    title:
+      lang === "fr"
+        ? "Gestion du Poste Clients & Relance Factures"
+        : "Customer Management & Invoice Reminders",
+
+    description:
+      lang === "fr"
+        ? "Suivi des factures impayées et relance clients professionnelle."
+        : "Tracking unpaid invoices and professional customer reminders.",
+
+    url: `https://virtuel-compta.vercel.app/${lang}/services/relance-factures`,
+
+    siteName: "Virtuel Comptable",
+
+    type: "website",
+
+    locale: lang === "fr" ? "fr_FR" : "en_US",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title:
+      lang === "fr"
+        ? "Gestion du Poste Clients & Relance Factures"
+        : "Customer Management & Invoice Reminders",
+
+    description:
+      lang === "fr"
+        ? "Optimisation du recouvrement et gestion clients."
+        : "Cash flow optimization and customer management.",
+  },
+};
 }
 
 export default async function RelanceFacturesPage({ params }: PageProps) {
