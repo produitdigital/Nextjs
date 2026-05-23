@@ -9,16 +9,76 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const dict = await getDictionary(lang);
 
   return {
-    title: lang === "fr"
+  title:
+    lang === "fr"
       ? "Blog Comptable Professionnel | Conseils Finance PME"
       : "Professional Accounting Blog | SME Finance Tips",
-    description: lang === "fr"
+
+  description:
+    lang === "fr"
       ? "Blog en comptabilité, finance et gestion PME. Conseils professionnels pour améliorer votre entreprise."
       : "Blog on accounting, finance and SME management. Professional advice to improve your business.",
-    keywords: lang === "fr"
-      ? ["comptabilité", "finance PME", "gestion entreprise", "blog comptable", "conseils finance"]
-      : ["accounting", "SME finance", "business management", "accounting blog", "finance advice"],
-  };
+
+  keywords:
+    lang === "fr"
+      ? [
+          "comptabilité",
+          "finance PME",
+          "gestion entreprise",
+          "blog comptable",
+          "conseils finance",
+        ]
+      : [
+          "accounting",
+          "SME finance",
+          "business management",
+          "accounting blog",
+          "finance advice",
+        ],
+
+  alternates: {
+    canonical: `https://virtuel-compta.vercel.app/${lang}/blog`,
+
+    languages: {
+      fr: "https://virtuel-compta.vercel.app/fr/blog",
+      en: "https://virtuel-compta.vercel.app/en/blog",
+    },
+  },
+
+  openGraph: {
+    title:
+      lang === "fr"
+        ? "Blog Comptable Professionnel"
+        : "Professional Accounting Blog",
+
+    description:
+      lang === "fr"
+        ? "Articles et conseils en comptabilité et gestion financière pour PME."
+        : "Articles and tips on accounting and financial management for SMEs.",
+
+    url: `https://virtuel-compta.vercel.app/${lang}/blog`,
+
+    siteName: "Virtuel Comptable",
+
+    type: "website",
+
+    locale: lang === "fr" ? "fr_FR" : "en_US",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title:
+      lang === "fr"
+        ? "Blog Comptable Professionnel"
+        : "Professional Accounting Blog",
+
+    description:
+      lang === "fr"
+        ? "Conseils comptables et financiers pour entreprises."
+        : "Accounting and financial advice for businesses.",
+  },
+};
 }
 
 interface PageProps {
