@@ -17,42 +17,92 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) {
     return {
-      title: lang === "fr" ? "Article introuvable" : "Article not found",
-      description: lang === "fr" ? "Cet article n'existe pas." : "This article does not exist.",
-    };
+  title:
+    lang === "fr"
+      ? "Article introuvable"
+      : "Article not found",
+
+  description:
+    lang === "fr"
+      ? "Cet article n'existe pas."
+      : "This article does not exist.",
+};
   }
 
-  const baseUrl = "https://virtuel-comptable.web.app";
-  return {
-    title: lang === "fr"
-      ? `${post.title} | Virtuelcomptable`
-      : `${post.title_en || post.title} | Virtuelcomptable`,
-    description: lang === "fr" ? post.description : (post.description_en || post.description),
-    keywords: post.tags,
-    alternates: {
-      canonical: `${baseUrl}/${lang}/blog/${post.slug}`,
-      languages: {
-        fr: `${baseUrl}/fr/blog/${post.slug}`,
-        en: `${baseUrl}/en/blog/${post.slug}`,
+  const baseUrl = "https://virtuel-compta.vercel.app";
+
+return {
+  title:
+    lang === "fr"
+      ? `${post.title} | Virtuel Comptable`
+      : `${post.title_en || post.title} | Virtuel Comptable`,
+
+  description:
+    lang === "fr"
+      ? post.description
+      : post.description_en || post.description,
+
+  keywords: post.tags,
+
+  alternates: {
+    canonical: `${baseUrl}/${lang}/blog/${post.slug}`,
+
+    languages: {
+      fr: `${baseUrl}/fr/blog/${post.slug}`,
+      en: `${baseUrl}/en/blog/${post.slug}`,
+    },
+  },
+
+  openGraph: {
+    title:
+      lang === "fr"
+        ? post.title
+        : post.title_en || post.title,
+
+    description:
+      lang === "fr"
+        ? post.description
+        : post.description_en || post.description,
+
+    url: `${baseUrl}/${lang}/blog/${post.slug}`,
+
+    siteName: "Virtuel Comptable",
+
+    type: "article",
+
+    locale: lang === "fr" ? "fr_FR" : "en_US",
+
+    images: [
+      {
+        url: `${baseUrl}/banner.webp`,
+        width: 1200,
+        height: 630,
+        alt: post.title,
       },
-    },
-    openGraph: {
-      title: lang === "fr" ? post.title : (post.title_en || post.title),
-      description: lang === "fr" ? post.description : (post.description_en || post.description),
-      url: `${baseUrl}/${lang}/blog/${post.slug}`,
-      type: "article",
-      images: [{ url: "/banner.webp", width: 1200, height: 630, alt: post.title }],
-      locale: lang === "fr" ? "fr_FR" : "en_US",
-      alternateLocale: lang === "fr" ? "en_US" : "fr_FR",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: lang === "fr" ? post.title : (post.title_en || post.title),
-      description: lang === "fr" ? post.description : (post.description_en || post.description),
-      images: ["/banner.webp"],
-    },
-    robots: { index: true, follow: true },
-  };
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title:
+      lang === "fr"
+        ? post.title
+        : post.title_en || post.title,
+
+    description:
+      lang === "fr"
+        ? post.description
+        : post.description_en || post.description,
+
+    images: [`${baseUrl}/banner.webp`],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 }
 
 // Génération des chemins statiques pour toutes les langues
