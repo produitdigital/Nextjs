@@ -1,4 +1,4 @@
-import Image from "next/image";
+returneturnmport Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import { getDictionary } from "@/lib/get-dictionary";
@@ -11,13 +11,59 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { lang } = await params;
 
   return {
-    title: lang === "fr"
+  title:
+    lang === "fr"
       ? "Pré-comptabilité & Organisation Documentaire | Assistant Virtuel"
       : "Pre-accounting & Document Organization | Virtual Assistant",
-    description: lang === "fr"
+
+  description:
+    lang === "fr"
       ? "Préparez sereinement vos documents pour votre expert-comptable avec un service de pré-comptabilité professionnel."
       : "Prepare your documents for your chartered accountant with a professional pre-accounting service.",
-  };
+
+  alternates: {
+    canonical: `https://virtuel-compta.vercel.app/${lang}/services/pre-comptabilite`,
+
+    languages: {
+      fr: "https://virtuel-compta.vercel.app/fr/services/pre-comptabilite",
+      en: "https://virtuel-compta.vercel.app/en/services/pre-comptabilite",
+    },
+  },
+
+  openGraph: {
+    title:
+      lang === "fr"
+        ? "Pré-comptabilité & Organisation Documentaire"
+        : "Pre-accounting & Document Organization",
+
+    description:
+      lang === "fr"
+        ? "Service professionnel de pré-comptabilité pour PME et freelances."
+        : "Professional pre-accounting service for SMEs and freelancers.",
+
+    url: `https://virtuel-compta.vercel.app/${lang}/services/pre-comptabilite`,
+
+    siteName: "Virtuel Comptable",
+
+    type: "website",
+
+    locale: lang === "fr" ? "fr_FR" : "en_US",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title:
+      lang === "fr"
+        ? "Pré-comptabilité & Organisation Documentaire"
+        : "Pre-accounting & Document Organization",
+
+    description:
+      lang === "fr"
+        ? "Service de pré-comptabilité professionnel pour entreprises."
+        : "Professional pre-accounting service for businesses.",
+  },
+};
 }
 
 export default async function PreComptabilitePage({ params }: PageProps) {
