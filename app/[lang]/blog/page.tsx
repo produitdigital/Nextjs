@@ -115,17 +115,6 @@ export default async function BlogPage({ params }: PageProps) {
 
       {/* BARRE DE NAVIGATION INTERNE + SÉLECTEUR DE LANGUE */}
       <nav className="mb-10 flex flex-col items-center justify-between gap-4 rounded-full bg-gray-100 px-6 py-3 shadow-sm md:flex-row md:rounded-full">
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link href={`/${lang}`} className="text-gray-700 transition hover:text-primary font-medium">
-            {t.backToHome}
-          </Link>
-          <Link href={`/${lang}/services`} className="text-gray-700 transition hover:text-primary font-medium">
-            {t.services}
-          </Link>
-          <Link href={`/${lang}/contact`} className="text-gray-700 transition hover:text-primary font-medium">
-            {t.contact}
-          </Link>
-        </div>
         <div className="flex items-center gap-2 rounded-full bg-white px-3 py-1 shadow-sm">
           <Link href="/fr/blog" className={`rounded-full px-3 py-1 text-sm font-semibold transition ${lang === "fr" ? "bg-primary text-white" : "text-gray-700 hover:bg-gray-200"}`}>
             FR
