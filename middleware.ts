@@ -1,27 +1,31 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// Liste des langues supportées
 const locales = ["fr", "en"];
+// Chemins à exclure complètement de la redirection de langue (pas de préfixe)
+const excludedPaths = ["/login", "/admin"];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // On vérifie si l'URL contient déjà une langue supportée
+  // Si le chemin commence par un chemin exclu → on laisse passer tel quel
+  if (excludedPaths.some((p) => pathname === p || pathname.startsWith(p + "/"))) {
+    return NextResponse.next();
+  }
+
+  // Vérifie si la langue est déjà présente
   const pathnameIsMissingLocale = locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
-  // Si la langue manque, on redirige vers le français (/fr) par défaut
   if (pathnameIsMissingLocale) {
-    return NextResponse.redirect(
-      new URL(`/fr${pathname}`, request.url)
-    );
+    return NextResponse.redirect(new URL(`/fr${pathname}`, request.url));
   }
+
+  return NextResponse.next();
 }
 
 export const config = {
-  // CRITIQUE : Cette liste empêche le middleware de bloquer tes images et fichiers techniques
   matcher: [
     "/((?!api|_next/static|_next/image|favicon.ico|images|banner.webp|teamwork.webp|profil.webp).*)",
   ],
