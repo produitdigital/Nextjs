@@ -44,18 +44,12 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "Assistant Virtuel Comptable | Services à distance",
-
     description:
       "Services administratifs et comptables professionnels à distance pour PME et entrepreneurs.",
-
     url: "https://virtuel-compta.vercel.app",
-
     siteName: "Virtuel Comptable",
-
     locale: "fr_FR",
-
     type: "website",
-
     images: [
       {
         url: "https://virtuel-compta.vercel.app/images/banner.webp",
@@ -68,19 +62,15 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-
     title: "Assistant Virtuel Comptable",
-
     description:
       "Services comptables professionnels à distance pour PME et entrepreneurs.",
-
     images: ["https://virtuel-compta.vercel.app/images/banner.webp"],
   },
 
   robots: {
     index: true,
     follow: true,
-
     googleBot: {
       index: true,
       follow: true,
@@ -93,6 +83,11 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+
+  // ⭐ GOOGLE SEARCH CONSOLE VERIFICATION (IMPORTANT)
+  verification: {
+    google: "jpz-AG-FXpwsj3mj4IAjPTCgPvax31zkUYUTyG0K_wI",
+  },
 };
 
 export default function RootLayout({
@@ -102,8 +97,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* JSON-LD SEO STRUCTURED DATA */}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {/* JSON-LD STRUCTURED DATA */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
