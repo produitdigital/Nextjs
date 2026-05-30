@@ -6,7 +6,6 @@ module.exports = {
   additionalPaths: async (config) => {
     const languages = ["fr", "en"];
 
-    // Pages statiques
     const staticPages = [
       "",
       "/services",
@@ -18,7 +17,7 @@ module.exports = {
       "/services/saisie-comptable",
     ];
 
-    // Slugs des articles de blog (liste manuelle)
+    // Liste manuelle des slugs d'articles (vérifiez qu'ils existent dans content/posts.ts)
     const blogSlugs = [
       "gestion-factures-pme",
       "prevision-financiere-pme",
@@ -34,7 +33,6 @@ module.exports = {
 
     let paths = [];
 
-    // Ajouter pages statiques et services
     for (const lang of languages) {
       for (const page of staticPages) {
         paths.push({
@@ -44,7 +42,6 @@ module.exports = {
           lastmod: new Date().toISOString(),
         });
       }
-      // Ajouter articles de blog
       for (const slug of blogSlugs) {
         paths.push({
           loc: `/${lang}/blog/${slug}`,
@@ -54,16 +51,6 @@ module.exports = {
         });
       }
     }
-
     return paths;
-  },
-
-  transform: async (config, path) => {
-    return {
-      loc: `${config.siteUrl}${path}`,
-      changefreq: "weekly",
-      priority: 0.7,
-      lastmod: new Date().toISOString(),
-    };
   },
 };
