@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 
 const locales = ["fr", "en"];
 // Chemins à exclure complètement de la redirection de langue (pas de préfixe)
-const excludedPaths = ["/login", "/admin"];
+const excludedPaths = ["/login", "/admin", "/sitemap.xml", "/robots.txt"];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
